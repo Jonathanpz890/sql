@@ -44,8 +44,8 @@ CREATE TABLE job_placements.job_roles (
     updated_at DATE NOT NULL DEFAULT NOW(),
     is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
 
-    CONSTRAINT job_id FOREIGN KEY(id) REFERENCES jobs(id),
-    CONSTRAINT role_id FOREIGN KEY(id) REFERENCES roles(id)
+    job_id INTEGER REFERENCES jobs(id) NOT NULL,
+    role_id INTEGER REFERENCES roles(id) NOT NULL
 );
 
 CREATE TRIGGER set_timestamp_job_roles
